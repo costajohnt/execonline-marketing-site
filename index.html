@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExecOnline | World-Class Leadership Development</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* ExecOnline Brand Colors */
+            --color-primary: #36bedd;
+            --color-primary-dark: #2aa8c5;
+            --color-primary-light: #5ccbe5;
+
+            --color-dark: #1a1a1a;
+            --color-text: #333333;
+            --color-text-light: #555555;
+            --color-text-muted: #777777;
+
+            --color-bg: #ffffff;
+            --color-bg-alt: #f8f8f8;
+            --color-bg-dark: #1a1a1a;
+
+            --color-border: #e5e5e5;
+            --color-border-light: #f0f0f0;
+
+            /* Typography */
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-display: 'Plus Jakarta Sans', 'Inter', sans-serif;
+
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 6rem;
+            --spacing-2xl: 8rem;
+
+            /* Transitions */
+            --transition-fast: 0.15s ease;
+            --transition-medium: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--color-text);
+            background: var(--color-bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .container-wide {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            font-weight: 300;
+            line-height: 1.2;
+            color: var(--color-dark);
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 200;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 300;
+        }
+
+        h3 {
+            font-size: clamp(1.25rem, 2vw, 1.5rem);
+            font-weight: 400;
+        }
+
+        p {
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--color-text-light);
+        }
+
+        .text-primary { color: var(--color-primary); }
+
+        .label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-primary);
+            display: inline-block;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-border-light);
+            transition: var(--transition-medium);
+        }
+
+        nav.scrolled {
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-sm) 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo svg {
+            height: 32px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-dark);
+            letter-spacing: -0.02em;
+        }
+
+        .logo-text span {
+            color: var(--color-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: var(--color-text-light);
+            text-decoration: none;
+            transition: var(--transition-fast);
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-primary);
+        }
+
+        .nav-cta {
+            background: var(--color-primary);
+            color: var(--color-bg) !important;
+            padding: 0.75rem 1.5rem !important;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: var(--transition-fast);
+        }
+
+        .nav-cta:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-1px);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            font-family: var(--font-primary);
+            font-size: 0.9375rem;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .btn-primary {
+            background: var(--color-primary);
+            color: var(--color-bg);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(54, 190, 221, 0.25);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-text);
+            border: 1px solid var(--color-border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+        }
+
+        .btn-white {
+            background: var(--color-bg);
+            color: var(--color-dark);
+        }
+
+        .btn-white:hover {
+            background: var(--color-bg-alt);
+            transform: translateY(-2px);
+        }
+
+        .btn svg {
+            width: 16px;
+            height: 16px;
+            transition: var(--transition-fast);
+        }
+
+        .btn:hover svg {
+            transform: translateX(3px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 140px 0 var(--spacing-xl);
+            background: var(--color-bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(54, 190, 221, 0.03) 0%, rgba(54, 190, 221, 0.08) 100%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+
+        .hero-text {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s ease forwards;
+            animation-delay: 0.2s;
+        }
+
+        .hero-text h1 {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .hero-text h1 span {
+            color: var(--color-primary);
+        }
+
+        .hero-text p {
+            font-size: 1.125rem;
+            margin-bottom: var(--spacing-lg);
+            max-width: 520px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+        }
+
+        .hero-visual {
+            position: relative;
+            opacity: 0;
+            transform: translateX(30px);
+            animation: fadeLeft 0.8s ease forwards;
+            animation-delay: 0.4s;
+        }
+
+        .hero-card {
+            background: var(--color-bg);
+            border-radius: 16px;
+            padding: var(--spacing-lg);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--color-border-light);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-md);
+        }
+
+        .stat {
+            text-align: center;
+            padding: var(--spacing-sm);
+        }
+
+        .stat-value {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: var(--color-primary);
+            line-height: 1;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--color-text-muted);
+        }
+
+        .hero-badge {
+            position: absolute;
+            background: var(--color-bg);
+            border-radius: 12px;
+            padding: var(--spacing-sm) var(--spacing-md);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .hero-badge.top {
+            top: -10px;
+            right: -20px;
+        }
+
+        .hero-badge.bottom {
+            bottom: 20px;
+            left: -30px;
+            animation-delay: -2.5s;
+        }
+
+        .hero-badge-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--color-primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-bg);
+        }
+
+        .hero-badge-text strong {
+            display: block;
+            font-size: 0.875rem;
+            color: var(--color-dark);
+        }
+
+        .hero-badge-text span {
+            font-size: 0.75rem;
+            color: var(--color-text-muted);
+        }
+
+        /* Partners Section */
+        .partners {
+            padding: var(--spacing-lg) 0;
+            background: var(--color-bg-alt);
+            border-top: 1px solid var(--color-border-light);
+            border-bottom: 1px solid var(--color-border-light);
+        }
+
+        .partners-inner {
+            text-align: center;
+        }
+
+        .partners-inner p {
+            font-size: 0.9375rem;
+            color: var(--color-text-muted);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .partners-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm) var(--spacing-md);
+        }
+
+        .partner-logo {
+            font-family: var(--font-display);
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: var(--color-text-muted);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: var(--transition-fast);
+            white-space: nowrap;
+        }
+
+        .partner-logo:hover {
+            color: var(--color-primary);
+            background: var(--color-bg);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: var(--spacing-2xl) 0;
+        }
+
+        .section-alt {
+            background: var(--color-bg-alt);
+        }
+
+        .section-dark {
+            background: var(--color-bg-dark);
+            color: var(--color-bg);
+        }
+
+        .section-header {
+            max-width: 600px;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .section-header.center {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-header h2 {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .section-dark .section-header h2 {
+            color: var(--color-bg);
+        }
+
+        .section-dark .section-header p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Solutions Grid */
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-md);
+        }
+
+        .solution-card {
+            background: var(--color-bg);
+            border-radius: 12px;
+            padding: var(--spacing-md);
+            border: 1px solid var(--color-border-light);
+            transition: var(--transition-medium);
+        }
+
+        .solution-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border-color: var(--color-primary);
+        }
+
+        .solution-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-bg);
+        }
+
+        .solution-card h3 {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .solution-card p {
+            font-size: 0.9375rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .solution-link {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--color-primary);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .solution-link:hover {
+            text-decoration: underline;
+        }
+
+        .solution-link svg {
+            width: 14px;
+            height: 14px;
+            transition: var(--transition-fast);
+        }
+
+        .solution-link:hover svg {
+            transform: translateX(3px);
+        }
+
+        /* Impact Stats */
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-lg);
+            text-align: center;
+            padding: var(--spacing-lg) 0;
+        }
+
+        .impact-stat {
+            position: relative;
+        }
+
+        .impact-stat::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .impact-stat:last-child::after {
+            display: none;
+        }
+
+        .impact-value {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            font-weight: 200;
+            color: var(--color-primary);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .impact-label {
+            font-size: 0.9375rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-md);
+        }
+
+        .testimonial-card {
+            background: var(--color-bg);
+            border-radius: 12px;
+            padding: var(--spacing-md);
+            border: 1px solid var(--color-border-light);
+            transition: var(--transition-medium);
+        }
+
+        .testimonial-card:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+        }
+
+        .testimonial-quote {
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--color-text);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.7;
+            position: relative;
+        }
+
+        .testimonial-quote::before {
+            content: '"';
+            font-size: 3rem;
+            color: var(--color-primary);
+            opacity: 0.2;
+            position: absolute;
+            top: -10px;
+            left: -5px;
+            line-height: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .testimonial-avatar {
+            width: 44px;
+            height: 44px;
+            background: var(--color-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-bg);
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .testimonial-info h4 {
+            font-family: var(--font-primary);
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--color-dark);
+        }
+
+        .testimonial-info p {
+            font-size: 0.8125rem;
+            color: var(--color-text-muted);
+            margin: 0;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: var(--spacing-2xl) 0;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            text-align: center;
+        }
+
+        .cta-inner {
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            color: var(--color-bg);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .cta p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-bg-dark);
+            color: var(--color-bg);
+            padding: var(--spacing-xl) 0 var(--spacing-md);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr repeat(3, 1fr);
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .footer-brand .logo-text {
+            color: var(--color-bg);
+            margin-bottom: var(--spacing-sm);
+            display: inline-block;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9375rem;
+            max-width: 280px;
+        }
+
+        .footer-column h4 {
+            font-family: var(--font-primary);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.4);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 0.625rem;
+        }
+
+        .footer-column a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            transition: var(--transition-fast);
+        }
+
+        .footer-column a:hover {
+            color: var(--color-primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: var(--spacing-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.875rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+
+        .footer-social a {
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.6);
+            transition: var(--transition-fast);
+        }
+
+        .footer-social a:hover {
+            background: var(--color-primary);
+            color: var(--color-bg);
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .solutions-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .impact-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .impact-stat:nth-child(2)::after {
+                display: none;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                max-width: 400px;
+                margin: var(--spacing-md) auto 0;
+            }
+
+            .hero-badge {
+                display: none;
+            }
+
+            .solutions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .impact-stats {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+            }
+
+            .impact-stat::after {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container nav-inner">
+            <a href="#" class="logo">
+                <span class="logo-text">Exec<span>Online</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#solutions">Solutions</a></li>
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="#partners">Partners</a></li>
+                <li><a href="#testimonials">Success Stories</a></li>
+                <li><a href="#contact" class="nav-cta">Request Demo</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="label">Leadership Development</span>
+                    <h1>Connecting leaders to their <span>future potential</span></h1>
+                    <p>Partner with the world's top business schools to deliver transformative leadership development at scale. From emerging managers to senior executives.</p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">
+                            Request a Demo
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </a>
+                        <a href="#solutions" class="btn btn-secondary">Explore Solutions</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-card">
+                        <div class="hero-stats">
+                            <div class="stat">
+                                <div class="stat-value">11</div>
+                                <div class="stat-label">Elite Business Schools</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">130+</div>
+                                <div class="stat-label">Programs</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">14</div>
+                                <div class="stat-label">Languages</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">12</div>
+                                <div class="stat-label">Time Zones</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-badge top">
+                        <div class="hero-badge-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                            </svg>
+                        </div>
+                        <div class="hero-badge-text">
+                            <strong>World-Class Faculty</strong>
+                            <span>MIT · Stanford · Wharton</span>
+                        </div>
+                    </div>
+                    <div class="hero-badge bottom">
+                        <div class="hero-badge-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                        </div>
+                        <div class="hero-badge-text">
+                            <strong>Executive Coaches</strong>
+                            <span>15+ years experience</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners" id="partners">
+        <div class="container">
+            <div class="partners-inner reveal">
+                <p>Partnered with the world's most prestigious business schools</p>
+                <div class="partners-grid">
+                    <span class="partner-logo">MIT Sloan</span>
+                    <span class="partner-logo">Stanford GSB</span>
+                    <span class="partner-logo">Wharton</span>
+                    <span class="partner-logo">Columbia</span>
+                    <span class="partner-logo">UC Berkeley</span>
+                    <span class="partner-logo">Yale SOM</span>
+                    <span class="partner-logo">Duke</span>
+                    <span class="partner-logo">Dartmouth Tuck</span>
+                    <span class="partner-logo">UVA Darden</span>
+                    <span class="partner-logo">IMD</span>
+                    <span class="partner-logo">Ivey</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="section" id="solutions">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="label">Our Solutions</span>
+                <h2>Leadership development for every level</h2>
+                <p>From scalable digital programs to immersive executive experiences, we meet leaders where they are.</p>
+            </div>
+            <div class="solutions-grid">
+                <div class="solution-card reveal">
+                    <div class="solution-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3>Applied Experience Platform</h3>
+                    <p>130+ on-demand programs designed for scalable learning with flexible modules.</p>
+                    <a href="#" class="solution-link">
+                        Learn more
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="solution-card reveal">
+                    <div class="solution-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div>
+                    <h3>Advanced Leader Programs</h3>
+                    <p>Immersive experiences with live faculty sessions and peer networking.</p>
+                    <a href="#" class="solution-link">
+                        Learn more
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="solution-card reveal">
+                    <div class="solution-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                        </svg>
+                    </div>
+                    <h3>Executive Coaching</h3>
+                    <p>One-on-one coaching with certified experts averaging 15+ years experience.</p>
+                    <a href="#" class="solution-link">
+                        Learn more
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="solution-card reveal">
+                    <div class="solution-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <h3>Insights & Analytics</h3>
+                    <p>Real-time dashboards tracking engagement, progress, and ROI.</p>
+                    <a href="#" class="solution-link">
+                        Learn more
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="section section-dark" id="impact">
+        <div class="container">
+            <div class="section-header center reveal">
+                <span class="label">Proven Impact</span>
+                <h2>Transforming organizations through leadership</h2>
+                <p>Our enterprise partners see measurable results in leadership capability and business outcomes.</p>
+            </div>
+            <div class="impact-stats reveal">
+                <div class="impact-stat">
+                    <div class="impact-value">500+</div>
+                    <div class="impact-label">Enterprise Clients</div>
+                </div>
+                <div class="impact-stat">
+                    <div class="impact-value">50K+</div>
+                    <div class="impact-label">Leaders Developed</div>
+                </div>
+                <div class="impact-stat">
+                    <div class="impact-value">95%</div>
+                    <div class="impact-label">Completion Rate</div>
+                </div>
+                <div class="impact-stat">
+                    <div class="impact-value">4.8/5</div>
+                    <div class="impact-label">Participant Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section section-alt" id="testimonials">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="label">Success Stories</span>
+                <h2>Trusted by leading enterprises</h2>
+                <p>See how L&D leaders are transforming their organizations.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <p class="testimonial-quote">ExecOnline has been instrumental in developing our next generation of leaders. The quality of content from top business schools gives our programs instant credibility.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">JB</div>
+                        <div class="testimonial-info">
+                            <h4>Joydeep Bose</h4>
+                            <p>MD & Group CHRO, Olam International</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <p class="testimonial-quote">The project-based learning approach ensures our leaders apply what they learn immediately. We've seen tangible business impact from every cohort.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">CM</div>
+                        <div class="testimonial-info">
+                            <h4>Chuck Mancini</h4>
+                            <p>Former SVP CHRO, Tronox</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <p class="testimonial-quote">ExecOnline's agile approach to L&D allows us to respond quickly to business needs while maintaining world-class program quality.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">MH</div>
+                        <div class="testimonial-info">
+                            <h4>Missy Hallead</h4>
+                            <p>SVP Global Head of Talent, Aristocrat</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <div class="container">
+            <div class="cta-inner reveal">
+                <span class="label" style="color: rgba(255,255,255,0.8);">Get Started</span>
+                <h2>Ready to transform your leadership development?</h2>
+                <p>Connect with our team to explore how ExecOnline can help develop leaders at every level.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-white">
+                        Request a Demo
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                    <a href="#" class="btn btn-secondary" style="border-color: rgba(255,255,255,0.3); color: white;">Talk to Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="logo-text">Exec<span>Online</span></span>
+                    <p>Connecting leaders to their future potential through world-class business school partnerships.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="#">Applied Experience Platform</a></li>
+                        <li><a href="#">Advanced Leader Programs</a></li>
+                        <li><a href="#">Executive Coaching</a></li>
+                        <li><a href="#">Insights & Analytics</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Business Schools</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Success Stories</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">News</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ExecOnline. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Scroll reveal
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            revealElements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                if (elementTop < window.innerHeight - 80) {
+                    el.classList.add('active');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

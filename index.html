@@ -1248,6 +1248,426 @@
     }
 
     /* ========================================
+       WHY EXECONLINE / DIFFERENTIATORS
+    ======================================== */
+    .why-us {
+      padding: var(--space-2xl) 0;
+      background: var(--midnight);
+      position: relative;
+    }
+
+    .why-us-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+    }
+
+    .diff-card {
+      background: linear-gradient(135deg, rgba(54, 190, 221, 0.05) 0%, rgba(184, 114, 168, 0.05) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: var(--space-lg);
+      transition: var(--transition-medium);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .diff-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--gradient-accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: var(--transition-fast);
+    }
+
+    .diff-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(54, 190, 221, 0.3);
+      background: linear-gradient(135deg, rgba(54, 190, 221, 0.08) 0%, rgba(184, 114, 168, 0.08) 100%);
+    }
+
+    .diff-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .diff-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: rgba(54, 190, 221, 0.1);
+      border: 1px solid rgba(54, 190, 221, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-md);
+      font-size: 1.5rem;
+    }
+
+    .diff-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      color: var(--white);
+      margin-bottom: var(--space-sm);
+    }
+
+    .diff-card p {
+      color: var(--silver);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* ========================================
+       ALTERNATIVES COMPARISON
+    ======================================== */
+    .alternatives {
+      padding: var(--space-xl) 0;
+      background: rgba(54, 190, 221, 0.03);
+      border-top: 1px solid rgba(54, 190, 221, 0.1);
+      border-bottom: 1px solid rgba(54, 190, 221, 0.1);
+    }
+
+    .alternatives-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-md);
+      margin-top: var(--space-lg);
+    }
+
+    .alt-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      padding: var(--space-md);
+      text-align: center;
+      transition: var(--transition-fast);
+    }
+
+    .alt-card:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .alt-card h4 {
+      font-size: 0.95rem;
+      color: var(--silver);
+      margin-bottom: var(--space-sm);
+      font-weight: 600;
+    }
+
+    .alt-card .problem {
+      font-size: 0.85rem;
+      color: var(--magenta);
+      margin-bottom: var(--space-sm);
+    }
+
+    .alt-card .solution {
+      font-size: 0.85rem;
+      color: var(--cyan);
+      font-weight: 500;
+    }
+
+    /* Ready to launch banner */
+    .ready-banner {
+      background: var(--gradient-accent);
+      border-radius: 16px;
+      padding: var(--space-lg);
+      margin-top: var(--space-lg);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+    }
+
+    .ready-banner-content h3 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--midnight);
+      margin-bottom: var(--space-xs);
+    }
+
+    .ready-banner-content p {
+      color: rgba(26, 26, 31, 0.8);
+      font-size: 0.95rem;
+    }
+
+    .ready-banner .btn-dark {
+      background: var(--midnight);
+      color: var(--white);
+      padding: 0.75rem 1.5rem;
+      border-radius: 100px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition-fast);
+    }
+
+    .ready-banner .btn-dark:hover {
+      background: var(--charcoal);
+      transform: translateY(-2px);
+    }
+
+    /* Awards/Credibility Section */
+    .credibility {
+      padding: var(--space-lg) 0;
+      background: var(--midnight);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .credibility-items {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-xl);
+      flex-wrap: wrap;
+    }
+
+    .cred-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      color: var(--silver);
+      font-size: 0.9rem;
+    }
+
+    .cred-item .icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(54, 190, 221, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+
+    /* ========================================
+       CASE STUDIES
+    ======================================== */
+    .case-studies {
+      padding: var(--space-2xl) 0;
+      background: var(--charcoal);
+    }
+
+    .case-studies-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+      margin-top: var(--space-lg);
+    }
+
+    .case-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: var(--space-lg);
+      transition: var(--transition-fast);
+    }
+
+    .case-card:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(54, 190, 221, 0.2);
+    }
+
+    .case-company {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--cyan);
+      margin-bottom: var(--space-xs);
+    }
+
+    .case-industry {
+      font-size: 0.8rem;
+      color: var(--silver);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-md);
+    }
+
+    .case-quote {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--pearl);
+      line-height: 1.5;
+      margin-bottom: var(--space-md);
+    }
+
+    .case-author {
+      font-size: 0.85rem;
+      color: var(--silver);
+    }
+
+    .case-author strong {
+      color: var(--white);
+    }
+
+    /* ROI Highlight Box */
+    .roi-highlight {
+      background: linear-gradient(135deg, var(--cyan) 0%, var(--magenta) 100%);
+      border-radius: 24px;
+      padding: var(--space-xl);
+      margin-top: var(--space-xl);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-lg);
+      text-align: center;
+    }
+
+    .roi-stat {
+      color: var(--white);
+    }
+
+    .roi-stat .value {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1;
+      margin-bottom: var(--space-xs);
+    }
+
+    .roi-stat .label {
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+
+    /* ========================================
+       LEADERSHIP SECTION
+    ======================================== */
+    .leadership {
+      padding: var(--space-2xl) 0;
+      background: var(--midnight);
+    }
+
+    .leadership-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: var(--space-xl);
+      align-items: center;
+    }
+
+    .leader-photo {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 24px;
+      background: linear-gradient(135deg, var(--charcoal) 0%, var(--slate) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      color: var(--silver);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .leader-content h3 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      color: var(--white);
+      margin-bottom: var(--space-xs);
+    }
+
+    .leader-title {
+      font-size: 1.1rem;
+      color: var(--cyan);
+      font-weight: 600;
+      margin-bottom: var(--space-md);
+    }
+
+    .leader-bio {
+      color: var(--silver);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: var(--space-md);
+    }
+
+    .leader-credentials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    .credential {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 100px;
+      padding: 0.5rem 1rem;
+      font-size: 0.8rem;
+      color: var(--pearl);
+    }
+
+    .leader-quote {
+      margin-top: var(--space-lg);
+      padding: var(--space-md);
+      border-left: 3px solid var(--cyan);
+      background: rgba(54, 190, 221, 0.05);
+      border-radius: 0 12px 12px 0;
+    }
+
+    .leader-quote p {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--pearl);
+    }
+
+    /* ========================================
+       PRICING/CONTACT SECTION
+    ======================================== */
+    .pricing-note {
+      text-align: center;
+      padding: var(--space-lg);
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      margin-top: var(--space-lg);
+    }
+
+    .pricing-note h4 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      color: var(--white);
+      margin-bottom: var(--space-sm);
+    }
+
+    .pricing-note p {
+      color: var(--silver);
+      font-size: 0.95rem;
+      margin-bottom: var(--space-md);
+    }
+
+    .contact-methods {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-lg);
+      flex-wrap: wrap;
+      margin-top: var(--space-md);
+    }
+
+    .contact-method {
+      text-align: center;
+    }
+
+    .contact-method span {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--silver);
+      margin-bottom: 4px;
+    }
+
+    .contact-method a {
+      color: var(--cyan);
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition-fast);
+    }
+
+    .contact-method a:hover {
+      color: var(--white);
+    }
+
+    /* ========================================
        TABLE OF CONTENTS SIDEBAR
     ======================================== */
     .toc-sidebar {
@@ -1399,6 +1819,45 @@
       .footer-grid {
         grid-template-columns: repeat(2, 1fr);
       }
+
+      .why-us-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .case-studies-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .roi-highlight {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .leadership-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .leader-photo {
+        max-width: 300px;
+        margin: 0 auto;
+      }
+
+      .leader-credentials {
+        justify-content: center;
+      }
+
+      .alternatives-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .ready-banner {
+        text-align: center;
+        justify-content: center;
+      }
+
+      .credibility-items {
+        gap: var(--space-md);
+      }
     }
 
     @media (max-width: 768px) {
@@ -1435,6 +1894,35 @@
         width: 100%;
         justify-content: center;
       }
+
+      .why-us-grid,
+      .case-studies-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .roi-highlight {
+        grid-template-columns: repeat(2, 1fr);
+        padding: var(--space-lg);
+      }
+
+      .contact-methods {
+        flex-direction: column;
+        gap: var(--space-md);
+      }
+
+      .alternatives-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ready-banner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .credibility-items {
+        flex-direction: column;
+        gap: var(--space-md);
+      }
     }
 
     /* Smooth scroll offset for fixed nav */
@@ -1451,11 +1939,11 @@
         <span>exec</span>online
       </a>
       <ul class="nav-links">
+        <li><a href="#why-us">Why Us</a></li>
         <li><a href="#solutions">Solutions</a></li>
-        <li><a href="#coaching">Coaching</a></li>
-        <li><a href="#impact">Impact</a></li>
-        <li><a href="#partners">Partners</a></li>
-        <li><a href="#about">About</a></li>
+        <li><a href="#case-studies">Results</a></li>
+        <li><a href="#leadership">Leadership</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
       <a href="#contact" class="nav-cta">Request Demo</a>
     </div>
@@ -1473,6 +1961,10 @@
         <span class="toc-dot"></span>
         <span class="toc-label">Partners</span>
       </a></li>
+      <li><a href="#why-us" class="toc-link" data-section="why-us">
+        <span class="toc-dot"></span>
+        <span class="toc-label">Why Us</span>
+      </a></li>
       <li><a href="#challenge" class="toc-link" data-section="challenge">
         <span class="toc-dot"></span>
         <span class="toc-label">Challenge</span>
@@ -1489,13 +1981,17 @@
         <span class="toc-dot"></span>
         <span class="toc-label">Impact</span>
       </a></li>
-      <li><a href="#testimonials" class="toc-link" data-section="testimonials">
+      <li><a href="#case-studies" class="toc-link" data-section="case-studies">
         <span class="toc-dot"></span>
-        <span class="toc-label">Stories</span>
+        <span class="toc-label">Results</span>
       </a></li>
       <li><a href="#clients" class="toc-link" data-section="clients">
         <span class="toc-dot"></span>
         <span class="toc-label">Clients</span>
+      </a></li>
+      <li><a href="#leadership" class="toc-link" data-section="leadership">
+        <span class="toc-dot"></span>
+        <span class="toc-label">CEO</span>
       </a></li>
       <li><a href="#contact" class="toc-link" data-section="contact">
         <span class="toc-dot"></span>
@@ -1515,23 +2011,24 @@
     </div>
     <div class="container">
       <div class="hero-content">
-        <div class="hero-eyebrow">Leadership Development at Scale</div>
+        <div class="hero-eyebrow">Yale • Wharton • MIT • Columbia • Stanford</div>
         <h1 class="hero-title">
-          Connecting leaders' growth to <em>organizational performance</em>
+          One platform. <em>Best-in-class faculty.</em> Real business impact.
         </h1>
         <p class="hero-subtitle">
-          Partner with world-class business schools to develop every level of leadership.
-          From emerging talent to C-suite executives, we deliver measurable business impact.
+          The integrated leadership development solution combining world-class courses, executive coaching,
+          and group experiences—powered by our Learn by Doing™ methodology that turns learning into action plans
+          and measurable results.
         </p>
         <div class="hero-ctas">
           <a href="#contact" class="btn-primary">
-            Request a Demo
+            Get Started Today
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
           </a>
-          <a href="#solutions" class="btn-secondary">
-            Explore Solutions
+          <a href="#why-us" class="btn-secondary">
+            See Why We're Different
           </a>
         </div>
         <div class="hero-stats">
@@ -1567,28 +2064,141 @@
     </div>
   </section>
 
+  <!-- Credibility Section -->
+  <section class="credibility">
+    <div class="container">
+      <div class="credibility-items">
+        <div class="cred-item">
+          <div class="icon">🏆</div>
+          <span>ASU+GSV Innovator Award</span>
+        </div>
+        <div class="cred-item">
+          <div class="icon">🔒</div>
+          <span>SOC 2 Compliant</span>
+        </div>
+        <div class="cred-item">
+          <div class="icon">📊</div>
+          <span>Proven ROI Framework</span>
+        </div>
+        <div class="cred-item">
+          <div class="icon">🌍</div>
+          <span>180,000+ Leaders Developed</span>
+        </div>
+        <div class="cred-item">
+          <div class="icon">⭐</div>
+          <span>Fortune 500 Trusted</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why ExecOnline Section -->
+  <section class="why-us" id="why-us">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Why ExecOnline</div>
+        <h2 class="section-title">One partner. <em>Complete solution.</em></h2>
+        <p class="section-subtitle">
+          Stop juggling multiple vendors with inconsistent quality. ExecOnline delivers an integrated approach
+          that simplifies your L&D operations while maximizing impact.
+        </p>
+      </div>
+      <div class="why-us-grid">
+        <div class="diff-card">
+          <div class="diff-icon">🎓</div>
+          <h3>Faculty-Led Sessions</h3>
+          <p>Direct access to world-renowned professors from top business schools—not just pre-recorded content, but live, interactive learning experiences.</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-icon">⚡</div>
+          <h3>Learn by Doing™</h3>
+          <p>Our proprietary methodology ensures leaders apply concepts immediately to real business challenges, generating measurable organizational value.</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-icon">🎯</div>
+          <h3>Competency Mapping</h3>
+          <p>Programs designed around your leadership competency models, ensuring every course selection directly supports your talent strategy.</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-icon">🔗</div>
+          <h3>Integrated Platform</h3>
+          <p>Courses, coaching, and cohort experiences in one seamless platform—no more piecing together solutions from multiple providers.</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-icon">📜</div>
+          <h3>University Certificates</h3>
+          <p>Participants earn branded certificates from partner institutions—credentials that recognize achievement and boost engagement.</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-icon">📊</div>
+          <h3>Real-Time Feedback</h3>
+          <p>Customized insights and progress tracking close to real-time, so you can measure impact and adjust programs on the fly.</p>
+        </div>
+      </div>
+
+      <!-- Alternatives Comparison -->
+      <div class="alternatives">
+        <div class="section-header">
+          <h3 class="section-title" style="font-size: 1.8rem;">Why not the <em>alternatives?</em></h3>
+        </div>
+        <div class="alternatives-grid">
+          <div class="alt-card">
+            <h4>Build It Internally</h4>
+            <p class="problem">Requires massive resources, expertise you may not have, and years to develop</p>
+            <p class="solution">We're ready now—launch in weeks, not years</p>
+          </div>
+          <div class="alt-card">
+            <h4>Hire Consultants</h4>
+            <p class="problem">Expensive, temporary solutions that leave when the engagement ends</p>
+            <p class="solution">Ongoing platform + support at a fraction of the cost</p>
+          </div>
+          <div class="alt-card">
+            <h4>Go Direct to Schools</h4>
+            <p class="problem">Limited seats, rigid schedules, and no integration with your L&D strategy</p>
+            <p class="solution">Access to all top schools, your timeline, your competency framework</p>
+          </div>
+          <div class="alt-card">
+            <h4>Do Nothing</h4>
+            <p class="problem">68% of CEOs feel underprepared; 50-70% of new executives fail</p>
+            <p class="solution">The cost of inaction is higher than the investment</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ready to Launch Banner -->
+      <div class="ready-banner">
+        <div class="ready-banner-content">
+          <h3>Ready to Launch. Out of the Box.</h3>
+          <p>Our platform is pre-built with 150+ courses, certified coaches, and proven methodologies—so you can go live in weeks, not months.</p>
+        </div>
+        <a href="#contact" class="btn-dark">Start Your Program →</a>
+      </div>
+    </div>
+  </section>
+
   <!-- Challenge Section -->
   <section class="challenge" id="challenge">
     <div class="container">
       <div class="challenge-grid">
         <div class="challenge-content">
-          <h2>Leader development in a <em>challenging</em> environment</h2>
+          <h2>We understand your <em>reality</em></h2>
           <p>
-            Organizations face unprecedented pressure to develop leaders at every level while
-            budgets shrink and resources become scarcer. The data reveals a critical gap.
+            As an HR or L&D leader, you're asked to do more with less—smaller budgets, leaner teams,
+            and higher expectations. You're tired of juggling multiple vendors with inconsistent quality.
+            ExecOnline was built to solve exactly these challenges.
           </p>
           <div class="challenge-stats">
             <div class="challenge-stat">
               <div class="challenge-stat-value">68%</div>
-              <div class="challenge-stat-text">of CEOs feel underprepared for their role, highlighting gaps even at the highest levels</div>
+              <div class="challenge-stat-text">of CEOs feel underprepared for their role—your leaders need development, not more vendors</div>
             </div>
             <div class="challenge-stat">
               <div class="challenge-stat-value">50-70%</div>
-              <div class="challenge-stat-text">of executives fail within their first 18 months in a new leadership position</div>
+              <div class="challenge-stat-text">of executives fail in their first 18 months—quality content and coaching make the difference</div>
             </div>
             <div class="challenge-stat">
-              <div class="challenge-stat-value">23%</div>
-              <div class="challenge-stat-text">of HR leaders believe mid-level leaders have the capabilities they need</div>
+              <div class="challenge-stat-value">Only 4%</div>
+              <div class="challenge-stat-text">of L&D leaders measure financial impact—we help you prove ROI to stakeholders</div>
             </div>
           </div>
         </div>
@@ -1616,42 +2226,42 @@
   <section class="solutions" id="solutions">
     <div class="container">
       <div class="section-header">
-        <div class="section-eyebrow">Flexible Solutions</div>
-        <h2 class="section-title">Integrated solutions to meet your <em>evolving needs</em></h2>
+        <div class="section-eyebrow">Integrated Solutions</div>
+        <h2 class="section-title">Learning that drives <em>real business outcomes</em></h2>
         <p class="section-subtitle">
-          Configure scalable solutions tailored for your team, combining world-class content
-          with expert coaching and cohort experiences.
+          Every program ends with ready-to-use action plans tied to your business priorities.
+          Leaders don't just learn—they deliver measurable results from day one.
         </p>
       </div>
       <div class="solutions-grid">
         <div class="solution-card">
           <div class="solution-icon">📚</div>
           <h3>Courses</h3>
-          <p>150+ certificate courses from premier business schools, delivered through immersive online experiences.</p>
+          <p>150+ certificate courses featuring our Learn by Doing™ methodology—every course includes action plan assignments tied to real business challenges.</p>
           <ul class="solution-features">
-            <li>Professor-Led Programs</li>
-            <li>On-Campus Experiences</li>
-            <li>On-Demand Learning</li>
+            <li>Faculty-Led Sessions</li>
+            <li>Real-World Project Work</li>
+            <li>University Certificates</li>
           </ul>
         </div>
         <div class="solution-card">
           <div class="solution-icon">🎯</div>
-          <h3>Coaching</h3>
-          <p>Providing in-the-moment guidance aligned with course learnings from coaches who've had careers, not just certifications.</p>
+          <h3>Executive Coaching</h3>
+          <p>1-on-1 guidance from coaches with 21+ years average experience—helping leaders apply learnings to immediate business priorities.</p>
           <ul class="solution-features">
-            <li>Leadership Coaching</li>
-            <li>Executive Coaching</li>
-            <li>21 Avg. Years Experience</li>
+            <li>Action Plan Development</li>
+            <li>Competency-Aligned Goals</li>
+            <li>Measurable Outcomes</li>
           </ul>
         </div>
         <div class="solution-card">
           <div class="solution-icon">👥</div>
-          <h3>Cohort Experiences</h3>
-          <p>Coach-led sessions reinforcing the core tenets of your programs through shared learning journeys.</p>
+          <h3>Group Coaching</h3>
+          <p>Cohort-based experiences that turn individual learnings into organizational capabilities through peer collaboration.</p>
           <ul class="solution-features">
-            <li>Group Coaching Sessions</li>
-            <li>Kickoffs & Capstones</li>
-            <li>Peer Networking</li>
+            <li>Shared Action Planning</li>
+            <li>Cross-Functional Learning</li>
+            <li>Accountability Partners</li>
           </ul>
         </div>
       </div>
@@ -1773,89 +2383,72 @@
     </div>
   </section>
 
-  <!-- Testimonials Section -->
-  <section class="testimonials" id="testimonials">
-    <div class="section-header container">
-      <div class="section-eyebrow">Success Stories</div>
-      <h2 class="section-title">Real results from <em>real leaders</em></h2>
-    </div>
-    <div class="testimonials-track">
-      <div class="testimonial-card">
-        <p class="testimonial-content">
-          "This program strengthens our finance team's ability to operate as strategic business
-          partners by building core leadership skills."
+  <!-- Case Studies Section -->
+  <section class="case-studies" id="case-studies">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Success Stories</div>
+        <h2 class="section-title">Trusted by industry <em>leaders</em></h2>
+        <p class="section-subtitle">
+          See how HR and L&D leaders are transforming their organizations with ExecOnline.
         </p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">VP</div>
-          <div class="testimonial-info">
-            <h4>VP, FP&A</h4>
-            <p>Leading Through Personal Excellence</p>
-          </div>
+      </div>
+      <div class="case-studies-grid">
+        <div class="case-card">
+          <div class="case-company">Thoughtworks</div>
+          <div class="case-industry">Technology Consulting</div>
+          <p class="case-quote">"With that content library, I was able to work with the ExecOnline team to craft two different leadership development journeys—democratizing L&D across the organization."</p>
+          <p class="case-author"><strong>Michelle Jewell</strong><br>Head of Learning & Development</p>
+        </div>
+        <div class="case-card">
+          <div class="case-company">Vonage</div>
+          <div class="case-industry">Communications Technology</div>
+          <p class="case-quote">"Participants asked 'Can we put our team members through these classes?' The demand to expand offerings came directly from the positive participant experience."</p>
+          <p class="case-author"><strong>Sue Quackenbush</strong><br>Chief Human Resources Officer</p>
+        </div>
+        <div class="case-card">
+          <div class="case-company">Aristocrat</div>
+          <div class="case-industry">Gaming & Entertainment</div>
+          <p class="case-quote">"ExecOnline has been a great partner for us. They have made it easy to equip our top talent with the tools and resources needed for agile L&D."</p>
+          <p class="case-author"><strong>Missy Hallead</strong><br>SVP, Global Talent</p>
+        </div>
+        <div class="case-card">
+          <div class="case-company">Keysight Technologies</div>
+          <div class="case-industry">Electronic Measurement</div>
+          <p class="case-quote">"ExecOnline Coaching rapidly increased the capability of key managers to engage their teams during a critical growth period."</p>
+          <p class="case-author"><strong>HR Leadership Team</strong><br>Manager Development Initiative</p>
+        </div>
+        <div class="case-card">
+          <div class="case-company">S&C Electric</div>
+          <div class="case-industry">Power Systems</div>
+          <p class="case-quote">"ExecOnline provided accessible leadership development to all our leaders—not just the select few who could attend in-person executive programs."</p>
+          <p class="case-author"><strong>Aurelie Richard</strong><br>Chief Human Development Officer</p>
+        </div>
+        <div class="case-card">
+          <div class="case-company">Excelitas</div>
+          <div class="case-industry">Photonics Technology</div>
+          <p class="case-quote">"The programs ExecOnline offers are fantastic in supporting our leaders and their individual needs—helping us build a complete L&D framework."</p>
+          <p class="case-author"><strong>Steve Jones</strong><br>VP Talent Management</p>
         </div>
       </div>
-      <div class="testimonial-card">
-        <p class="testimonial-content">
-          "This project transforms our Patient & Technical Services capabilities by strengthening
-          our position as the preferred support provider."
-        </p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">DR</div>
-          <div class="testimonial-info">
-            <h4>Director, Patient Services</h4>
-            <p>Driving Digital Transformation</p>
-          </div>
+
+      <!-- ROI Highlight -->
+      <div class="roi-highlight">
+        <div class="roi-stat">
+          <div class="value">$179K</div>
+          <div class="label">Avg. financial impact per participant</div>
         </div>
-      </div>
-      <div class="testimonial-card">
-        <p class="testimonial-content">
-          "This project focuses on modernizing our retail model to increase relevance, improve
-          experience, and regain long-term market share."
-        </p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">GM</div>
-          <div class="testimonial-info">
-            <h4>GM, Merchandising</h4>
-            <p>Leading Strategic Growth</p>
-          </div>
+        <div class="roi-stat">
+          <div class="value">76X</div>
+          <div class="label">Return on investment</div>
         </div>
-      </div>
-      <div class="testimonial-card">
-        <p class="testimonial-content">
-          "This program strengthens our finance team's ability to operate as strategic business
-          partners by building core leadership skills."
-        </p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">VP</div>
-          <div class="testimonial-info">
-            <h4>VP, FP&A</h4>
-            <p>Leading Through Personal Excellence</p>
-          </div>
+        <div class="roi-stat">
+          <div class="value">$500M</div>
+          <div class="label">Client revenue from applied projects</div>
         </div>
-      </div>
-      <div class="testimonial-card">
-        <p class="testimonial-content">
-          "This project transforms our Patient & Technical Services capabilities by strengthening
-          our position as the preferred support provider."
-        </p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">DR</div>
-          <div class="testimonial-info">
-            <h4>Director, Patient Services</h4>
-            <p>Driving Digital Transformation</p>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <p class="testimonial-content">
-          "This project focuses on modernizing our retail model to increase relevance, improve
-          experience, and regain long-term market share."
-        </p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">GM</div>
-          <div class="testimonial-info">
-            <h4>GM, Merchandising</h4>
-            <p>Leading Strategic Growth</p>
-          </div>
+        <div class="roi-stat">
+          <div class="value">18%</div>
+          <div class="label">Avg. confidence increase</div>
         </div>
       </div>
     </div>
@@ -1878,6 +2471,39 @@
     </div>
   </section>
 
+  <!-- Leadership Section -->
+  <section class="leadership" id="leadership">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Our Leadership</div>
+        <h2 class="section-title">Built by <em>leaders</em>, for leaders</h2>
+      </div>
+      <div class="leadership-grid">
+        <div class="leader-photo">SB</div>
+        <div class="leader-content">
+          <h3>Stephen Bailey</h3>
+          <div class="leader-title">Co-Founder & CEO</div>
+          <p class="leader-bio">
+            Stephen Bailey co-founded ExecOnline in 2012 to bridge the gap between world-class executive education
+            and the leaders who need it most. Previously, Stephen served as CEO of Frontier Strategy Group (FSG),
+            where he scaled the company from an early-stage startup to serving nearly half the Fortune 500.
+            He also served as FSG's first Chief Product Officer and worked in the venture capital and private
+            equity group at WilmerHale.
+          </p>
+          <div class="leader-credentials">
+            <span class="credential">JD, Yale Law School</span>
+            <span class="credential">Phi Beta Kappa, Emory University</span>
+            <span class="credential">ASU+GSV Innovator of Color Award</span>
+            <span class="credential">Board Chair, Truman Center</span>
+          </div>
+          <div class="leader-quote">
+            <p>"As much as we leap-frog ahead in innovations in many areas of our working lives, organizations often still lag in recognizing what matters most: our human potential."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA Section -->
   <section class="cta" id="contact">
     <div class="cta-bg"></div>
@@ -1890,14 +2516,32 @@
         </p>
         <div class="cta-buttons">
           <a href="#" class="btn-primary">
-            Request a Demo
+            Request a Quote
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
           </a>
           <a href="#" class="btn-secondary">
-            Talk to Sales
+            Schedule a Demo
           </a>
+        </div>
+        <div class="pricing-note">
+          <h4>Flexible Pricing for Every Organization</h4>
+          <p>
+            Pricing is tailored to your organization's scope of need and level of engagement.
+            Whether you're developing 50 leaders or 5,000, we'll design a solution that fits your budget
+            and maximizes ROI.
+          </p>
+          <div class="contact-methods">
+            <div class="contact-method">
+              <span>Program Support</span>
+              <a href="mailto:support@execonline.com">support@execonline.com</a>
+            </div>
+            <div class="contact-method">
+              <span>Media Inquiries</span>
+              <a href="mailto:rhogan@execonline.com">rhogan@execonline.com</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -2002,12 +2646,14 @@
     const sections = [
       { id: 'hero', element: document.getElementById('hero') },
       { id: 'partners', element: document.getElementById('partners') },
+      { id: 'why-us', element: document.getElementById('why-us') },
       { id: 'challenge', element: document.getElementById('challenge') },
       { id: 'solutions', element: document.getElementById('solutions') },
       { id: 'coaching', element: document.getElementById('coaching') },
       { id: 'impact', element: document.getElementById('impact') },
-      { id: 'testimonials', element: document.getElementById('testimonials') },
+      { id: 'case-studies', element: document.getElementById('case-studies') },
       { id: 'clients', element: document.getElementById('clients') },
+      { id: 'leadership', element: document.getElementById('leadership') },
       { id: 'contact', element: document.getElementById('contact') }
     ];
 
